@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль Учителя</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Добро пожаловать, {{ user.username }}!</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Роль: Учитель</p>
+
+    <!-- Дополнительная информация -->
+    C:\Users\user\school_site\school_site\views.py
+    <h2>Ваши курсы</h2>
+    <ul>
+        <!-- Здесь можно вывести список курсов, которые ведёт учитель -->
+        <li>Курс 1</li>
+        <li>Курс 2</li>
+    </ul>
+
+    <a href="{% url 'logout' %}">Выйти</a>
+</body>
+</html>
