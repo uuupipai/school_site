@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="css/styles3.css">
@@ -10,11 +11,11 @@
 <body>
     <!-- Шапка сайта -->
     <header>
+        {% csrf_token %}
         <div class="logo">Лого</div>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Главная</a></li>
-                <li><a href="{% url 'teachers_catalog' %}">Каталог учителей</a></li>
                 <li><a href="{% url 'login' %}">Вход</a></li>
             </ul>
         </nav>

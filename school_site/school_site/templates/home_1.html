@@ -1,0 +1,23 @@
+<!-- home.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'profile' %}">Мой профиль</a></li>
+        </ul>
+    </nav>
+
+    <h1>Добро пожаловать на главную страницу!</h1>
+    <div>
+        <a href="{% url 'register' %}">Регистрация</a>
+        <a href="{% url 'login' %}">Вход</a>
+    </div>
+</body>
+</html>

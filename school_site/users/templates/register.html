@@ -1,12 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-<link rel="stylesheet" href="css/styles1.css"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="{% static 'css\styles1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="registration-container">
@@ -14,16 +13,12 @@
             <button class="tab active">по почте</button>
             <button class="tab">по телефону</button>
         </div>
-        <form class="registration-form">
-            <input type="text" placeholder="Имя" required>
-            <input type="email" placeholder="по почте" required>
-            <div class="password-container">
-                <input type="password" placeholder="Пароль" required>
-                <span class="toggle-password">&#128065;</span>
-            </div>
+        <form method="post" class="registration-form">
+            {% csrf_token %}
+            {{ form.as_p }}
             <button type="submit" class="register-btn">Зарегистрироваться</button>
         </form>
-        <p class="login-text">Уже есть учетная запись? <a href="#">Войти</a></p>
+        <p class="login-text">Уже есть учетная запись? <a href="{% url 'login' %}">Войти</a></p>
     </div>
 </body>
 </html>
