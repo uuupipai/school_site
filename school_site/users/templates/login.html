@@ -1,16 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+    <link rel="stylesheet" href="css/styles2.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Вход</title>
+    <link rel="stylesheet" href="{% static 'css\styles2.css' %}">
 </head>
 <body>
-    <h2>Вход</h2>
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
+    <div class="login-container">
+        <div class="tabs">
+            <button class="tab active">Вход</button>
+        </div>
+        
+        <form class="login-form" method="POST" action="{% url 'login' %}">
+            <input type="email" placeholder="Email" name="email" required>
+            <div class="password-container">
+                <input type="password" placeholder="Пароль" name="password" required>
+                <span class="toggle-password">&#128065;</span>
+            </div>
+            <button type="submit" class="login-btn">Войти</button>
+        </form>
+
+        <p class="register-text">Ещё нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+    </div>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<link rel="stylesheet" href="css/styles2.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Лого</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'teachers_catalog' %}">Каталог учителей</a></li>
+                    <li><a href="{% url 'login' %}">Вход</a></li>
+                    <li><a href="{% url 'register' %}">Регистрация</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной блок с информацией -->
+    <main>
+        <div class="container">
+            <section class="info">
+                <h2>Информация о школе</h2>
+                <p>Здесь будет основная информация о школе. Мы расскажем о наших учителях, курсах и достижениях.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <section class="footer-info">
+                <p>Контактная информация: <br> Телефон: +7 (000) 123-45-67 <br> Email: info@school.com</p>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,26 +1,85 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="css/styles3.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль Учителя</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles3.css' %}">
 </head>
 <body>
-    <h1>Добро пожаловать, {{ user.username }}!</h1>
-    <p>Email: {{ user.email }}</p>
-    <p>Роль: Учитель</p>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">Лого</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'teachers_catalog' %}">Каталог учителей</a></li>
+                <li><a href="{% url 'login' %}">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Дополнительная информация -->
-    C:\Users\user\school_site\school_site\views.py
-    <h2>Ваши курсы</h2>
-    <ul>
-        <!-- Здесь можно вывести список курсов, которые ведёт учитель -->
-        <li>Курс 1</li>
-        <li>Курс 2</li>
-    </ul>
+    <!-- Основная информация -->
+    <main>
+        <h1>{{ teacher.first_name }} {{ teacher.last_name }}</h1>
+        <h2>{{ teacher.subject }}</h2>
 
-    <a href="{% url 'logout' %}">Выйти</a>
+        <div class="content-container">
+            <!-- Блок с видеопрезентацией -->
+            <div class="video-container">
+                <h3>Видеопрезентация</h3>
+                <video width="320" height="240" controls>
+                    <source src="{% static 'videos/teacher_presentation.mp4' %}" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+
+            <!-- Блок с основной информацией -->
+            <div class="info-container">
+                <h3>О преподавателе</h3>
+                <img src="{% static 'images/teacher_photo.jpg' %}" alt="Фото учителя">
+                <p><strong>Образование:</strong> {{ teacher.education }}</p>
+                <p><strong>О себе:</strong> {{ teacher.about }}</p>
+            </div>
+        </div>
+
+        <!-- Расписание -->
+        <h3>Расписание</h3>
+        <div class="schedule">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>ПН</th>
+                        <th>ВТ</th>
+                        <th>СР</th>
+                        <th>ЧТ</th>
+                        <th>ПТ</th>
+                        <th>СБ</th>
+                        <th>ВС</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hour in schedule_hours %}
+                    <tr>
+                        <td>{{ hour }}</td>
+                        {% for day in schedule_days %}
+                        <td class="{% if day == 'Занято' %}busy{% else %}free{% endif %}">
+                            {{ day }}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Нижняя часть сайта -->
+    <footer>
+        <p>Контакты: +7 (123) 456-78-90 | info@school.ru</p>
+        <p>&copy; 2024 Школа</p>
+    </footer>
 </body>
 </html>
