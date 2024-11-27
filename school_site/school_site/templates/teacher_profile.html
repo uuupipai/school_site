@@ -1,12 +1,12 @@
 {% load static %}
+<link rel="stylesheet" href="css/teacher.css">
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="css/styles3.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль Учителя</title>
-    <link rel="stylesheet" href="{% static 'css/styles3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
 </head>
 <body>
     <!-- Шапка сайта -->
@@ -27,15 +27,6 @@
         <h2>{{ teacher.subject }}</h2>
 
         <div class="content-container">
-            <!-- Блок с видеопрезентацией -->
-            <div class="video-container">
-                <h3>Видеопрезентация</h3>
-                <video width="320" height="240" controls>
-                    <source src="{% static 'videos/teacher_presentation.mp4' %}" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-
             <!-- Блок с основной информацией -->
             <div class="info-container">
                 <h3>О преподавателе</h3>
